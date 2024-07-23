@@ -27,10 +27,7 @@ function App() {
   //   [contacts]
   // );
 
-  const initialValues = {
-    name: '',
-    phone: '',
-  };
+ 
 
   // const onSubmit = (values, actions) => {
   //   setContacts([...contacts, values]);
@@ -39,10 +36,7 @@ function App() {
 
   return (
     <>
-      <ContactForm
-        initialValues={initialValues}
-        // onSubmit={onSubmit}
-      ></ContactForm>
+      <ContactForm></ContactForm>
       <SearchBox 
       // updateFilter={updateFilter}
       ></SearchBox>

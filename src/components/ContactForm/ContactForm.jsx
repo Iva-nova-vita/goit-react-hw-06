@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 
 import css from './ContactForm.module.css';
 
-export default function ContactForm({ initialValues}) {
+export default function ContactForm() {
   const nameId = useId();
   const phoneId = useId();
   const dispatch = useDispatch();
@@ -25,6 +25,11 @@ export default function ContactForm({ initialValues}) {
       .max(50, 'Too Long!')
       .required('Required'),
   });
+
+  const initialValues = {
+    name: '',
+    phone: '',
+  };
 
   return (
     <Formik
