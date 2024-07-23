@@ -8,14 +8,6 @@ const contactsSlice = createSlice({
       reducer(state, action) {
         state.push(action.payload);
       },
-      prepare({name,phone}) {
-        return {
-          payload: {
-            name,
-            phone
-          },
-        };
-      },
     },
     deleteContact(state, action) {
       const index = state.findIndex((task) => task.id === action.payload);
