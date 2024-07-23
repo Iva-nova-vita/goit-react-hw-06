@@ -2,7 +2,7 @@ import Contact from '../Contact/Contact';
 import css from './ContactList.module.css';
 import { useSelector } from 'react-redux';
 
-export default function ContactList({ onDelete }) {
+export default function ContactList() {
   const contacts = useSelector((state) => state.contacts);
   return (
     <ul className={css.list}>
@@ -11,7 +11,6 @@ export default function ContactList({ onDelete }) {
           <Contact
             key={i}
             item={contact}
-            onDelete={onDelete}
           ></Contact>
         );
       })}
