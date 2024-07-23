@@ -4,15 +4,16 @@ import { useSelector } from 'react-redux';
 
 export default function ContactList() {
   const contacts = useSelector((state) => state.contacts);
+  const filter = useSelector((state) => state.filters.name);
+
+  const filteredContacts = contacts.filter((contact) => {
+    return contact.name.toLowerCase().includes(filter);
+  });
+  console.log(filteredContacts);
   return (
     <ul className={css.list}>
-      {contacts.map((contact, i) => {
-        return (
-          <Contact
-            key={i}
-            item={contact}
-          ></Contact>
-        );
+      {filteredContacts.map((contact, i) => {
+        return <Contact key={i} item={contact}></Contact>;
       })}
     </ul>
   );
