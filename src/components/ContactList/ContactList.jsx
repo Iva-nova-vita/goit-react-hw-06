@@ -9,7 +9,6 @@ export default function ContactList() {
   const filteredContacts = contacts.filter((contact) => {
     return contact.name.toLowerCase().includes(filter);
   });
-  console.log(filteredContacts);
   return (
     <ul className={css.list}>
       {filteredContacts.map((contact, i) => {
