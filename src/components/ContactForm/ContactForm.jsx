@@ -1,12 +1,19 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useDispatch } from 'react-redux';
 import { useId } from 'react';
+import { addContact } from '../../redux/contactsSlice';
 import * as Yup from 'yup';
 
 import css from './ContactForm.module.css';
 
-export default function ContactForm({ initialValues, onSubmit }) {
+export default function ContactForm({ initialValues}) {
   const nameId = useId();
   const phoneId = useId();
+  const dispatch = useDispatch();
+  const onSubmit = (values, actions) => {
+    dispatch(addContact(values));
+    actions.resetForm();
+  };
 
   const ContactFormSchema = Yup.object().shape({
     name: Yup.string()
